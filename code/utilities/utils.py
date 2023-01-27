@@ -51,7 +51,7 @@ def get_semantic_answer(df, question, explicit_prompt="", model="DaVinci-text", 
         if len(res) == 0:
             prompt = f"{question}"
         elif limit_response:
-            prompt = f"{res['text'][0]}{restart_sequence}Please reply to the question using only the information present in this text or reply 'Not in the text': {question}"
+            prompt = f"{.join(res['text'][0:5]}{restart_sequence}Please reply to the question using only the information present in this text or reply 'Not in the text': {question}"
         else:
             prompt = f"{.join(res['text'][0:5])}{restart_sequence}{question}"
             
